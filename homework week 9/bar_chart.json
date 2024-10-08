@@ -1,0 +1,104 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/booi0003/3179/refs/heads/main/homework%20week%209/Malaysia%20Restaurant%20Review%20Datasets/data_cleaned/five_star_count_by_state.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "State_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Selangor",
+          "Sarawak",
+          "Pulau Pinang",
+          "Sarawak",
+          "Melaka",
+          "Perak",
+          "Kuala Lumpur",
+          "Kedah",
+          "Johor"
+        ],
+        "labels": [
+          "Show All",
+          "Selangor",
+          "Sarawak",
+          "Pulau Pinang",
+          "Sarawak",
+          "Melaka",
+          "Perak",
+          "Kuala Lumpur",
+          "Kedah",
+          "Johor"
+        ],
+        "name": "State Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "State_selection == null || datum.Location == State_selection"}
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "5star_review_count",
+          "type": "quantitative",
+          "title": "5-Star Reviews"
+        },
+        "y": {"field": "Location", "type": "nominal", "title": "State"},
+        "tooltip": [
+          {"field": "Location", "type": "nominal", "title": "State"},
+          {
+            "field": "5star_review_count",
+            "type": "quantitative",
+            "title": "No. of 5-Star:"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "transform": [
+        {"filter": "datum.Location == 'Selangor' || datum.Location == 'Melaka'"}
+      ],
+      "encoding": {
+        "x": {
+          "field": "5star_review_count",
+          "type": "quantitative",
+          "title": "5-Star Reviews"
+        },
+        "y": {"field": "Location", "type": "nominal", "title": "State"},
+        "text": {
+          "condition": [
+            {
+              "test": "datum.Location == 'Selangor'",
+              "value": "Highest 5-Star reviews"
+            },
+            {
+              "test": "datum.Location == 'Melaka'",
+              "value": "Lowest 5-Star reviews"
+            }
+          ]
+        },
+        "color": {"value": "black"},
+        "tooltip": [
+          {"field": "Location", "type": "nominal"},
+          {"field": "5star_review_count", "type": "quantitative"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
