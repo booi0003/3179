@@ -16,23 +16,21 @@
           "Selangor",
           "Sarawak",
           "Pulau Pinang",
-          "Sarawak",
           "Melaka",
           "Perak",
           "Kuala Lumpur",
           "Kedah",
-          "Johor"
+          "Johor "
         ],
         "labels": [
           "Selangor",
           "Sarawak",
           "Pulau Pinang",
-          "Sarawak",
           "Melaka",
           "Perak",
           "Kuala Lumpur",
           "Kedah",
-          "Johor"
+          "Johor "
         ],
         "name": "State Selection: "
       }
@@ -48,7 +46,7 @@
     }
   ],
   "title": {
-    "text": {"expr": "'Top 10 Restaurants in ' + State_selection"},
+    "text": {"expr": "'Top 10 Restaurants in ' + State_selection + ' (Google)'"},
     "fontSize": 16
   },
   "layer": [
