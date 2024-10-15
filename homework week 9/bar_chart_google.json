@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "width": 601,
   "height": 400,
-  
+
   "data": {
     "url": "https://raw.githubusercontent.com/booi0003/3179/refs/heads/main/homework%20week%209/Malaysia%20Restaurant%20Review%20Datasets/data_cleaned/top_10_per_state_final.csv",
     "format": {"type": "csv"}
