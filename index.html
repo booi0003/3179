@@ -17,15 +17,57 @@
 
     <title>5-Star Restaurants in Malaysia</title>
 
+    <style>
+        body {
+            text-align: center;
+            margin: 0;
+            font: Arial;
+            font-size: large;
+            background-color: aliceblue;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .chart {
+            margin: 20px auto;
+            width: 80%;
+        }
+        .chart-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        p {
+            margin: 20px;
+        }
+    </style>
 </head>
 
 <body>
     <h1>5-Star Restaurants in Malaysia</h1>
-
-    <div id="map"></div>
-    <div id="bar_chart_google"></div>
-    <div id="bar_chart_tripadvisor"></div>
-    <p></p>
+    <p>Malaysia is a country that is famous for its multi-cultural foods. However, restaurants across the country may vary in quality. 
+        <br>Hence, this visualisation can be used to help show which restaurants have high reviews.
+    </p>
+    <h2>Choropleth Map of 5-star restaurants in Malaysia</h2>
+    <p>This map shows us the spread of restaurants that have 5 star reviews in Malaysia. Several states have been joined into one to be able to showcased on this map. 
+        <br>[This is due to the state lines not being drawn properly on the map]
+    </p>
+    <div id="map" class="chart"></div>
+    <p>As we can see, Selangor hold a vast amount of 5 star reviews. This could be due to population distribution. However, another factor could be that the culture here is more 
+        <br>westernized and customers are more likely to leave reviews, leading to a higher amount of reviews.</p>
+    <h2>Google Reviews of Restaurants</h2>
+    <p>The bar chart shows us the Top 10 restaurants (5-Stars) in each State whereas the donut chart shows the total distribution of all reviews (1-5 Stars) in each state.</p>
+    <div class="chart-container">
+        <div id="bar_chart_google" class="chart"></div>
+        <div id="donut_google" class="chart"></div>
+    </div>
+    <h2>TripAdvisor Reviews of Restaurants</h2>
+    <p>This visualisation shows the data from TripAdvisor instead. We can see the differences between both Google and TripAdvisor in which restaurants had more reviews as well as the difference in review distribution.</p>
+    <div class="chart-container">
+        <div id="bar_chart_tripadvisor" class="chart"></div>
+        <div id="donut_tripadvisor" class="chart"></div>
+    </div>
+    <p>The TripAdvisor dataset has a more skewed distribution, with Kuala Lumpur having almost half of the amount of total reviews compared to the other states combined.</p>
 
 </body>
 

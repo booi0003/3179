@@ -34,7 +34,7 @@
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Location"},
-      {"field": "5star_review_count", "type": "quantitative"}
+      {"field": "5star_review_count", "type": "quantitative", "title": "5-Star Reviews"}
     ]
   },
   "config": {}
