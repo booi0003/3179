@@ -1,0 +1,29 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/booi0003/3179/refs/heads/main/homework%20week%209/Malaysia%20Restaurant%20Review%20Datasets/data_cleaned/TripAdvisor_data_cleaned.csv",
+    "format": {"type": "csv"}
+  },
+  "transform": [
+    {
+      "aggregate": [{"op": "count", "field": "Review_Count", "as": "count"}],
+      "groupby": ["Location"]
+    }
+  ],
+  "title": {
+    "text": "Review Distribution by State (TripAdvisor)",
+    "fontSize": 16
+  },
+  "mark": {"type": "arc", "outerRadius": 150, "innerRadius": 50},
+  "encoding": {
+    "theta": {"field": "count", "type": "quantitative"},
+    "color": {"field": "Location", "type": "nominal"},
+    "tooltip": [
+      {"field": "Location", "type": "nominal", "title": "State"},
+      {"field": "count", "type": "quantitative", "title": "Number of Reviews"}
+    ]
+  },
+  "config": {}
+}
