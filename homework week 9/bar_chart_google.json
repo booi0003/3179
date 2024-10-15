@@ -1,0 +1,109 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/booi0003/3179/refs/heads/main/homework%20week%209/Malaysia%20Restaurant%20Review%20Datasets/data_cleaned/top_10_per_state_final.csv",
+    "format": {"type": "csv"}
+  },
+  "params": [
+    {
+      "name": "State_selection",
+      "value": "Selangor",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Selangor",
+          "Sarawak",
+          "Pulau Pinang",
+          "Sarawak",
+          "Melaka",
+          "Perak",
+          "Kuala Lumpur",
+          "Kedah",
+          "Johor"
+        ],
+        "labels": [
+          "Selangor",
+          "Sarawak",
+          "Pulau Pinang",
+          "Sarawak",
+          "Melaka",
+          "Perak",
+          "Kuala Lumpur",
+          "Kedah",
+          "Johor"
+        ],
+        "name": "State Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "State_selection == null || datum.Location == State_selection"},
+    {
+      "window": [
+        {"op": "max", "field": "Review_Count", "as": "Max_Review_Count"}
+      ],
+      "groupby": ["Location"]
+    }
+  ],
+  "title": {
+    "text": {"expr": "'Top 10 Restaurants in ' + State_selection"},
+    "fontSize": 16
+  },
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Review_Count",
+          "type": "quantitative",
+          "title": "5-Star Reviews"
+        },
+        "y": {
+          "field": "Restaurant",
+          "type": "nominal",
+          "title": "Restaurant Name"
+        },
+        "tooltip": [
+          {"field": "Restaurant", "type": "nominal", "title": "Restaurant"},
+          {"field": "Location", "type": "nominal", "title": "State"},
+          {
+            "field": "Review_Count",
+            "type": "quantitative",
+            "title": "No. of 5-Stars:"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 11.5
+      },
+      "transform": [
+        {"filter": "datum.Review_Count == datum.Max_Review_Count"},
+        {
+          "calculate": "datum.Restaurant + ' has the highest 5-star reviews in ' + datum.Location + ' at ' + datum.Review_Count + ' reviews'",
+          "as": "Highest_Review_Tooltip"
+        }
+      ],
+      "encoding": {
+        "x": {"field": "Review_Count", "type": "quantitative"},
+        "y": {
+          "field": "Restaurant",
+          "type": "nominal",
+          "title": "Restaurant Name"
+        },
+        "text": {"value": "Highest 5-Star Reviews"},
+        "color": {"value": "black"},
+        "tooltip": [
+          {"field": "Highest_Review_Tooltip", "type": "nominal", "title": "Highest"}
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
