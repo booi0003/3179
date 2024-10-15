@@ -24,6 +24,7 @@
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
+      "title": "5-Star Reviews",
       "field": "5star_review_count",
       "type": "quantitative",
       "scale": {
