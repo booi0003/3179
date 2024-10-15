@@ -33,9 +33,22 @@
             width: 80%;
         }
         .chart-container {
+            border: 3px solid darkblue;
+            border-radius: 8px;
+            padding: 20px;
             display: flex;
             justify-content: center;
-            margin-bottom: 40px;
+            margin: 20px auto;
+            width: 90%;
+            background-color: white;
+        }
+        .text-container {
+            border: 2px solid darkblue;
+            border-radius: 8px;
+            padding: 15px;
+            background-color: lightcyan;
+            margin: 20px auto;
+            width: 90%;
         }
         p {
             margin: 20px;
@@ -44,30 +57,46 @@
 </head>
 
 <body>
-    <h1>5-Star Restaurants in Malaysia</h1>
-    <p>Malaysia is a country that is famous for its multi-cultural foods. However, restaurants across the country may vary in quality. 
-        <br>Hence, this visualisation can be used to help show which restaurants have high reviews.
-    </p>
-    <h2>Choropleth Map of 5-star restaurants in Malaysia</h2>
-    <p>This map shows us the spread of restaurants that have 5 star reviews in Malaysia. Several states have been joined into one to be able to showcased on this map. 
-        <br>[This is due to the state lines not being drawn properly on the map]
-    </p>
-    <div id="map" class="chart"></div>
-    <p>As we can see, Selangor hold a vast amount of 5 star reviews. This could be due to population distribution. However, another factor could be that the culture here is more 
-        <br>westernized and customers are more likely to leave reviews, leading to a higher amount of reviews.</p>
-    <h2>Google Reviews of Restaurants</h2>
-    <p>The bar chart shows us the Top 10 restaurants (5-Stars) in each State whereas the donut chart shows the total distribution of all reviews (1-5 Stars) in each state.</p>
+    
+    <div class="text-container">
+        <h1>5-Star Restaurants in Malaysia</h1>
+        <p>Malaysia is a country that is famous for its multi-cultural foods. However, restaurants across the country may vary in quality. 
+            <br>Hence, this visualisation can be used to help show which restaurants have high reviews.
+        </p>
+        <h2>Choropleth Map of 5-star restaurants in Malaysia</h2>
+        <p>This map shows us the spread of restaurants that have 5 star reviews in Malaysia. Several states have been joined into one to be able to showcased on this map. 
+            <br>[This is due to the state lines not being drawn properly on the map]
+        </p>
+    </div>
+    
+    <div id="map" class="chart-container"></div>
+    <div class="text-container">
+        <p>As we can see, Selangor hold a vast amount of 5 star reviews. This could be due to population distribution. However, another factor could be that the culture here is more 
+            <br>westernized and customers are more likely to leave reviews, leading to a higher amount of reviews.</p>
+    </div>
+    <div class="text-container">
+        <h2>Google Reviews of Restaurants</h2>
+        <p>The bar chart shows us the Top 10 restaurants (5-Stars) in each State whereas the donut chart shows the total distribution of all reviews (1-5 Stars) in each state.</p>
+    </div>
+    
     <div class="chart-container">
         <div id="bar_chart_google" class="chart"></div>
         <div id="donut_google" class="chart"></div>
     </div>
-    <h2>TripAdvisor Reviews of Restaurants</h2>
-    <p>This visualisation shows the data from TripAdvisor instead. We can see the differences between both Google and TripAdvisor in which restaurants had more reviews as well as the difference in review distribution.</p>
+
+    <div class="text-container">
+        <h2>TripAdvisor Reviews of Restaurants</h2>
+        <p>This visualisation shows the data from TripAdvisor instead. We can see the differences between both Google and TripAdvisor in which restaurants had more reviews as well as the difference in review distribution.</p>
+    </div>
+    
     <div class="chart-container">
         <div id="bar_chart_tripadvisor" class="chart"></div>
         <div id="donut_tripadvisor" class="chart"></div>
     </div>
-    <p>The TripAdvisor dataset has a more skewed distribution, with Kuala Lumpur having almost half of the amount of total reviews compared to the other states combined.</p>
+    <div class="text-container">
+        <p>The TripAdvisor dataset has a more skewed distribution, with Kuala Lumpur having almost half of the amount of total reviews compared to the other states combined.</p>
+    </div>
+    
 
 </body>
 
